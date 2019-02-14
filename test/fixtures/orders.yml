@@ -18,4 +18,4 @@ two:
   address: MyString
   text: MyString
   email: MyString
-   pay_type: 1
+  pay_type: 1
