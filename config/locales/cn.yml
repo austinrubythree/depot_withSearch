@@ -1,0 +1,9 @@
+cn:
+  layouts:
+    application:
+      title:        "實務書店"
+      home:         "主頁"
+      questions:    "問題查詢"
+      news:         "新聞"
+      contact:      "聯絡我們"
+      

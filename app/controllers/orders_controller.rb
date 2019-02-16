@@ -1,4 +1,5 @@
 class OrdersController < ApplicationController
+  skip_before_action :authorize, only: [:new, :create]
   include CurrentCart
   before_action :set_cart, only: [:new, :create]
   before_action :ensure_cart_isnt_empty, only: :new
@@ -34,6 +35,8 @@ class OrdersController < ApplicationController
       if @order.save
         Cart.destroy(session[:cart_id])
         session[:cart_id] = nil
+        # slow controller Pago
+        ChargeOrderJob.perform_later(@order,pay_type_params.to_h)
         OrderMailer.received(@order).deliver_later
         format.html { redirect_to @order, 
           notice: 'Thank you for your order!!' }
