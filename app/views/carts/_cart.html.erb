@@ -19,7 +19,7 @@
 <!-- EMPTY CART-->
 <%= button_to t('.empty'), cart, 
                 method: :delete,
-                confirm: 'Are you sure?' %>
+                data:{confirm: 'Are you sure?' } %>
 
 <%= button_to t('.checkout'), new_order_path(locale: I18n.locale),
                 method: :get,

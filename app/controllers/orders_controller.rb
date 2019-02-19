@@ -37,16 +37,14 @@ class OrdersController < ApplicationController
         session[:cart_id] = nil
         # slow controller Pago
         ChargeOrderJob.perform_later(@order,pay_type_params.to_h)
-        OrderMailer.received(@order).deliver_later
-        format.html { redirect_to @order, 
-          notice: 'Thank you for your order!!' }
-        format.json { render :show, 
-          status: :created, 
-          location: @order }
+        format.html { redirect_to store_index_url(locale: I18n.locale), 
+            notice: I18n.t('.thanks')}
+        format.json {render :show, statu: :created, 
+        locations: @order}
       else
-        format.html { render :new }
-        format.json { render json: @order.errors, 
-          status: :unprocessable_entity }
+        format.html { render :new}
+        format.json { render json: @order.errors,
+          status: :unprocessable_entity} 
       end
     end
   end
