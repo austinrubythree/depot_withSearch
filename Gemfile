@@ -64,6 +64,7 @@ group :test do
 end
 
 group :production do
+  # gem 'mysql2', '~>0.4.0'
   gem 'pg'
 end
 
