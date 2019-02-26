@@ -17,6 +17,8 @@ Rails.application.routes.draw do
     resources :carts
     root 'store#index', as: 'store_index', via: :all
   end
+  #stripe charge method
+  resources :charges
   
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   Depot::Application.routes.draw do

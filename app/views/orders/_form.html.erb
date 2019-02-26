@@ -13,7 +13,7 @@
       </ul>
     </div>
   <% end %>
-
+  <!--  ORIGINAL FORM -->
   <div class="field">
     <%= form.label :name, t('.name') %>
     <%= form.text_field :name, id: :order_name, size: 40 %>
@@ -34,4 +34,49 @@
   <div class="actions">
     <%= form.submit t('.submit') %>
   </div>
+
+  <!-- new stripe-->
+
+  <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+          data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+          data-description="A month's subscription"
+          data-amount="500"
+          data-locale="auto"></script>
+  
 <% end %>
+
+
+
+
+
+
+
+
+
+<!-- oldstripe form-->
+<%
+=begin%>
+ <% charges_path do %>
+<article>
+  <% if flash[:error].present? %>
+  <div id="error_explanation">
+    <p><%= falsh[:error] %></p>
+  </div>
+  <% end %>
+
+  <label class="amount">
+  <span>Amount: $<%= @order.price %></span>
+  </label>
+  </article>
+
+  <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+    data-key="<% Rails.configuration.stripe[:publishable_key] %>"
+    data-description="A month's subscription"
+    data-amount="<%= @order.price %>"
+    data-locale="auto"></script>
+
+<% end %> 
+<%
+=end%>
+
+
