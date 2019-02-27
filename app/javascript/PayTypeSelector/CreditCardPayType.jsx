@@ -3,35 +3,30 @@ import StripeCheckout from 'react-stripe-checkout'
 
 
 class CreditCardPayType extends React.Component{
-    // componentDidMount(){
-    //     onToken = (token) => {
-    //         console.log('creditCardPayType')
-    //         fetch('/charges', {
-    //             method: 'POST',
-    //             body: JSON.stringify(token),
-    //         }).then(response => {
-    //             response.json().then(data => {
-    //                 alert(`we are in business, ${data.email}`);
-    //             })
-    //         })
-    //     }
-    // }
+    stripeScript() {
+        const script = document.createElement("script");
+
+        script.setAttribute("class", "stripe-button");
+        script.setAttribute( "src", "https://checkout.stripe.com/checkout.js");
+        script.setAttribute("data-key", "pk_test_yThA2RySATebEbPZlLYTT4Km");
+        script.setAttribute("data-description", "The Pragmatic Bookshelf");
+        script.setAttribute("data-locale", "auto");
+        
+
+        document.getElementById("stripe-button").appendChild(script);
+    }
+
+    componentDidMount(){
+        this.stripeScript();
+    }
     
     render() {
         return(
             <div>
+                <div id ="stripe-button"></div>
                 
-                <StripeCheckout
-                    // name = "The Pragmatic Bookshelf"
-                    // stripeKey = "pk_test_yThA2RySATebEbPZlLYTT4Km"
-                    // token = {this.onToken}
-                    // amount = "500"
-                    // currency = "USD"
-                    // description = "check out" 
-                    // email = "info@therubythree.com"
-
-                    />
             </div>
+
         );
     }
 }

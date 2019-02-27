@@ -37,14 +37,16 @@ class OrdersController < ApplicationController
     # Token is created using Checkout or Elements!
     # Get the payment token ID submitted by the form:
     token = params[:stripeToken]
-    # customer = Stripe::Customer.create(
-    #   :email => params[:stripeEmail],
-    #   :source  => params[:stripeToken]
-    # )
+
+    print  "print out the total price #{@cart.total_price}"
+    number = 100 * @cart.total_price
+    stripePrice = number.floor
+    
     charge = Stripe::Charge.create({
-        amount: @order,
+        amount: stripePrice,
         currency: 'usd',
-        description: 'Example charge'
+        description: 'Example charge',
+        source: token
     })
 
     respond_to do |format|
