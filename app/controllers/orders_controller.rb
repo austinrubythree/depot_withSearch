@@ -31,18 +31,22 @@ class OrdersController < ApplicationController
     @order = Order.new(order_params)
     @order.add_line_items_from_cart(@cart)
 
-        Stripe.api_key = "sk_test_d89xcUW01GrxnzMMyPtdQwUQ"
+    Stripe.api_key = "sk_test_d89xcUW01GrxnzMMyPtdQwUQ"
+
 
     # Token is created using Checkout or Elements!
     # Get the payment token ID submitted by the form:
     token = params[:stripeToken]
-
+    # customer = Stripe::Customer.create(
+    #   :email => params[:stripeEmail],
+    #   :source  => params[:stripeToken]
+    # )
     charge = Stripe::Charge.create({
-        amount: 500,
+        amount: @order,
         currency: 'usd',
-        description: 'Example charge',
-        source: token,
+        description: 'Example charge'
     })
+
     respond_to do |format|
       if @order.save
         Cart.destroy(session[:cart_id])

@@ -13,6 +13,7 @@ class LineItemsController < ApplicationController
   # GET /line_items/1
   # GET /line_items/1.json
   def show
+    @price = Order.find(params[:id]).price
   end
 
   # GET /line_items/new

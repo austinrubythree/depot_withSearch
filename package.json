@@ -5,10 +5,13 @@
     "@rails/webpacker": "3.5",
     "babel-preset-react": "^6.24.1",
     "checkout": "^1.0.1",
+    "g": "^2.0.1",
+    "i": "^0.3.6",
     "prop-types": "^15.7.1",
     "react": "^16.8.1",
     "react-dom": "^16.8.1",
-    "react-stripe": "^0.1.0"
+    "react-stripe": "^0.1.0",
+    "react-stripe-checkout": "^2.6.3"
   },
   "devDependencies": {
     "webpack-dev-server": "2.11.2"
