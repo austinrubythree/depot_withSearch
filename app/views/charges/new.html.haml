@@ -1,0 +1,16 @@
+
+- =begin
+= form_tag charges_path do 
+  %article
+    - if flash[:error].present? 
+      #error_explanation
+        %p= flash[:error] 
+      
+    %label.amount
+      %span Amount: $6.00#{total_price} 
+
+
+      %script.stripe-button{"data-amount" => "#{Order.total_price}", 
+                    "data-description" => "book store charge", 
+                    "data-key" => "#{Rails.configuration.stripe[:publishable_key]}", "data-locale" => "auto", :src => "https://checkout.stripe.com/checkout.js"}
+      - =end

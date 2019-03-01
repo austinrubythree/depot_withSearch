@@ -1,0 +1,8 @@
+- if line_item == @current_item 
+    %tr.line-item-hightlight
+- else 
+
+    %tr
+        %td.quantity= line_item.quantity 
+        %td= line_item.product.title 
+        %td.price= number_to_currency(line_item.total_price)
