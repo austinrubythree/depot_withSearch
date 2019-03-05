@@ -19,12 +19,16 @@ Rails.application.routes.draw do
   end
   #stripe charge method
   resources :charges
+
+
   
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-  Depot::Application.routes.draw do
-    resources :products do
-      resources :reviews
-    get :who_bought, on: :member
-    end 
-  end
+  # Depot::Application.routes.draw do
+  #   resources :products do
+  #     resources :reviews
+  #   get :who_bought, on: :member
+  #   end 
+  # end
+
+  resources  :anything, to: '/'
 end
