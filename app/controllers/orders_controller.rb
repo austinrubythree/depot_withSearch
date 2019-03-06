@@ -46,7 +46,6 @@ class OrdersController < ApplicationController
         source: token,
         amount: stripePrice,
         currency: 'usd',
-        customer: 'austin',
         description: 'Example charge',
     })
 
