@@ -36,7 +36,7 @@ gem 'slim-rails'
 
 gem 'stripe'
 
-gem 'haml-rails', '~> 2.0'
+gem 'haml-rails', '~> 1.0'
 
 gem 'bootstrap'
 
@@ -65,7 +65,7 @@ group :development do
   gem 'spring'
   # gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'rspec-rails'
-  gem 'haml-rails', '~> 1.0'
+  
 end
 
 group :test do
