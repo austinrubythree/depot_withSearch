@@ -31,23 +31,23 @@ class OrdersController < ApplicationController
     @order = Order.new(order_params)
     @order.add_line_items_from_cart(@cart)
 
-    Stripe.api_key = "sk_test_d89xcUW01GrxnzMMyPtdQwUQ"
-
-
-    # Token is created using Checkout or Elements!
-    # Get the payment token ID submitted by the form:
-    
-    print  "print out the total price #{@cart.total_price}"
-    token = params[:stripeToken]
-    number = 100 * @cart.total_price
-    stripePrice = number.floor
-    
-    charge = Stripe::Charge.create({
-        source: token,
-        amount: stripePrice,
-        currency: 'usd',
-        description: 'Example charge',
-    })
+    # make an if statement here to check 
+    # if pay with was chosen credit card
+    if pay_type_params == "Credit Card"
+      Stripe.api_key = "sk_test_d89xcUW01GrxnzMMyPtdQwUQ"
+      
+      print  "print out the total price #{@cart.total_price}"
+      token = params[:stripeToken]
+      number = 100 * @cart.total_price
+      stripePrice = number.floor
+      
+      charge = Stripe::Charge.create({
+          source: token,
+          amount: stripePrice,
+          currency: 'usd',
+          description: 'Example charge',
+      })
+    end
 
     respond_to do |format|
       if @order.save

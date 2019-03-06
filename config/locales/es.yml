@@ -14,6 +14,7 @@ es:
       messages:
         inclusion: "no est&aacute; incluido en la lista"
         blank:     "no puede quedar en blanco"
+        
   errors:
     template:
       body:        "Hay problemas con los siguientes campos:"
