@@ -14,7 +14,8 @@
     .actions
         = button_to t('.empty'), cart, 
                         method: :delete,
-                        data: { confirm: 'Are you sure?' } 
+                        data: { confirm: 'Are you sure?' },
+                        id: "empty" 
 
         = button_to t('.checkout'), new_order_path(locale: I18n.locale),
                         method: :get,

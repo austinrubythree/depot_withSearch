@@ -11,20 +11,25 @@
 
   .field
     = form.label :name, t('name') 
-    = form.text_field :name, id: :order_name, size: 40 
+    #name
+      = form.text_field :name, id: :order_name, size: 40 
 
   .field
     = form.label :address, t('.address_html') 
-    = form.text_area :address, id: :order_address, rows: 3, cols: 40 
+    #address
+      = form.text_area :address, id: :order_address, rows: 3, cols: 40 
   
 
   .field
     = form.label :email, t('email') 
-    = form.email_field :email, id: :order_email, size: 40 
-
+    #email
+      = form.email_field :email, id: :order_email, size: 40, :type => "email"  
 
   #pay-type-component
 
-  .actions
-    = form.submit t('.submit') 
 
+  .actions
+    = form.submit t('.submit')
+
+  -# .actions
+  -#   = form.submit t('.submit')

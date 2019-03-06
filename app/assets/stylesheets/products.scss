@@ -32,7 +32,7 @@
     display: none;
 // Hide this on mobile devices display: none;
 // Assume anything bigger than 30em // is a non-mobile device and can // fit the image.
-  @media (min-width: 30em) {
+  @media (min-width: 40em) {
     display: block;
     img {
       height: 11.3em;
@@ -55,6 +55,8 @@
         }
       }
     }
+
+  
 
     tfoot {
       td {

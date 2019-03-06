@@ -20,7 +20,7 @@ body {
 
 header.main {
     text-align: center;
-    @media (min-width: 30em) {
+    @media (min-width: 40em) {
         text-align: left;
     }
     background: #282;
@@ -99,9 +99,10 @@ header.main {
     }
     main {
         padding: 0.5em;
-        @media (max-width:500px){
+        @media (max-width:40em){
             display: block;
-            width: 100%;
+            width: 95%;
+            padding: 1em;
         }
     }
 }
@@ -125,7 +126,7 @@ header.main {
         background: white;
         border-radius: 0.5em;
         margin: 1em;
-        padding: 1.414em;
+        padding: 2em;
         @media (min-width: 30em){
             margin: 0;
         }
@@ -149,7 +150,7 @@ header.main {
     input, textarea, select, option {
         border: solid thin #888;
         box-sizing: border-box;
-        font-size: 1em;
+        font-size: 1.5em;
         padding: 0.5em;
         width: 100%;
         border-radius: 2.5em;
@@ -165,9 +166,11 @@ header.main {
         font-size: 1.41em;
         font-weight: bold;
         padding: 0.354em 1em;
+        height: 2.5em;
     }
     input[type="submit"]:hover {
         background-color: #9d9;
+        
     } 
     // Also, clean up the error styling
     #error_explanation{

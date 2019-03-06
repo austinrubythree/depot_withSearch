@@ -36,17 +36,18 @@ class OrdersController < ApplicationController
 
     # Token is created using Checkout or Elements!
     # Get the payment token ID submitted by the form:
-    token = params[:stripeToken]
-
+    
     print  "print out the total price #{@cart.total_price}"
+    token = params[:stripeToken]
     number = 100 * @cart.total_price
     stripePrice = number.floor
     
     charge = Stripe::Charge.create({
+        source: token,
         amount: stripePrice,
         currency: 'usd',
+        customer: 'austin',
         description: 'Example charge',
-        source: token
     })
 
     respond_to do |format|
@@ -66,6 +67,7 @@ class OrdersController < ApplicationController
           status: :unprocessable_entity} 
       end
     end
+    
   end
 
   # PATCH/PUT /orders/1

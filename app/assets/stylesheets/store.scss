@@ -16,10 +16,22 @@
             padding: none;
         }
     
+    @media screen and (max-width: 40em){
+        h1 {
+            padding:1.2em;
+        }
+        #notice {
+            margin:1.5em;
+        }
+    }
     &::after {
         clear: both;
         content: " ";
         display: block;
+    }
+
+    main {
+        padding: 1.2em;
     }
     img {
         float: left;
@@ -29,20 +41,34 @@
         box-shadow: 0.176em 0.176em 0.354em 0px rgba(0,0,0,0.75);
         @media screen and (max-width: 40em){
             display: block;
-            width:80%;
+            width:75%;
             padding-left: 2em;
             margin-left: 1.5em;
         }
     }
-
+    
+    
     .h2 {
        text-align: center; 
     }
+    @media only screen and (max-width:40em){
+        #num {
+            text-align: center; 
+            display: block;
+            margin: 1.1em;
+            font-style: italic;
+        }
+    }
+    
     .price{
-        font-size: 1.414em;
+        font-size: 2em;
+        
             }
+
+            
             form, div {
                 display: inline;
+                
             }
             input[type="submit"]{
                 background-color:#282;
@@ -51,6 +77,11 @@
                 color: white;
                 font-size: 1em;
                 padding: 0.354em 1em;
+                @media only screen and (max-width:40em){
+                    display:block;
+                    width:100%;
+                    
+                }
             }
             input[type="submit"]:hover {
                 background-color: #141;
