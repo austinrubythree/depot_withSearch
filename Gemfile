@@ -36,7 +36,7 @@ gem 'slim-rails'
 
 gem 'stripe'
 
-gem 'haml-rails', '~> 1.0'
+gem 'haml-rails', '~> 2.0'
 
 gem 'bootstrap'
 
