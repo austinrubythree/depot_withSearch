@@ -55,6 +55,10 @@
         = render_if @cart && @cart.line_items.any?, 
       @cart 
 
+      %ul.hmenu
+        = render 'devise/menu/registration_items'
+        = render 'devise/menu/login_items'
+
       - if session[:user_id] 
         %nav.logged_in_nav
           %ul

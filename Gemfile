@@ -42,6 +42,9 @@ gem 'bootstrap'
 
 gem 'jquery-rails'
 
+# devise authentication
+gem 'devise'
+
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
 

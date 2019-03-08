@@ -1,12 +1,7 @@
 Rails.application.routes.draw do
+  # devise_for :users
   get 'admin' => 'admin#index'
-  controller :sessions do
-    get 'login' => :new
-    post 'login' => :create
-    delete 'logout' => :destroy
-  end
 
-  resources :users
   resources :products do
     get :who_bought, on: :member
   end
@@ -24,11 +19,10 @@ Rails.application.routes.draw do
   
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   # Depot::Application.routes.draw do
+  devise_for :users
   #   resources :products do
-  #     resources :reviews
+  #     resources :
   #   get :who_bought, on: :member
   #   end 
   # end
-
-  resources  :anything, to: '/'
 end
