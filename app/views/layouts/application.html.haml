@@ -35,11 +35,8 @@
     %h1= @page_title
     
     
-  %section.content
-
+  %section.content        
     %nav.side_nav
-      
-      
     
       %ul
         %li
@@ -55,7 +52,16 @@
         = render_if @cart && @cart.line_items.any?, 
       @cart 
 
+      %hr
       %ul.hmenu
+        - if user_signed_in?
+          %li
+            = link_to('Logout', destroy_user_session_path, method: :delete)
+
+        - else
+          %li
+            = link_to('Login', new_user_session_path)
+        
     
     %main{:class => "#{controller.controller_name}"}
       = yield
