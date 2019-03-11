@@ -1,6 +1,5 @@
 class CombineItemsInCart < ActiveRecord::Migration[5.2]
-  def change
-  end
+  
   def up
     
     Cart.all.each do |cart|

@@ -29,7 +29,12 @@ header.main {
         display: none;
     }
 }
-
+.username {
+    display: inline-block;
+    color: white;
+    padding-left:.7em;
+    font-weight: lighter;
+}
 .alert {
     color: red;
 }
