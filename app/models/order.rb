@@ -5,8 +5,8 @@ class Order < ApplicationRecord
     # include ActiveModel::Serializers::Xml
     enum pay_type: {
         "Check"             => 0,
-        "Credit card"       => 1,
-        "Purchase order"    => 2
+        "Credit Card"       => 1,
+        "Purchase Order"    => 2
     }
     has_many :line_items, dependent: :destroy
     
@@ -31,7 +31,7 @@ class Order < ApplicationRecord
                 payment_details[:account] = pay_type_params[:account_number]
             when "Credit Card"
                 payment_method = :credit_card
-                month,year = pay_type_params[:expiration_date].split(//)
+                month, year = pay_type_params[:expiration_date].split(//)
                 payment_details[:cc_num] = pay_type_params[:credit_card_number]
                 payment_details[:expiration_month] = month
                 payment_details[:expiration_year] = year

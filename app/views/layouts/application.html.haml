@@ -39,7 +39,7 @@
     
     - if user_signed_in?
       %h2.username Welcome: 
-      %h2.username= current_user.email.split('@')[0]
+      %h2.username= current_user.email.split('@')[0].capitalize
 
 
         
