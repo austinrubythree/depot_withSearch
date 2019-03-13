@@ -42,6 +42,7 @@ before_action :authenticate_user!
       Stripe.api_key = "sk_test_d89xcUW01GrxnzMMyPtdQwUQ"
             
       print  "print out the total price #{@cart.total_price}"
+      
       token = params[:stripeToken]
       number = 100 * @cart.total_price
       stripePrice = number.floor
@@ -88,10 +89,10 @@ before_action :authenticate_user!
   end
   # Pay type params
   def pay_type_params
-    if order_params[:pay_type] == "Credit Card"
-      params.require(:order).permit(:credit_card_number, :expiration_date)
+    # if order_params[:pay_type] == "Credit Card"
+      # params.require(:order).permit(:credit_card_number, :expiration_date)
       
-    elsif order_params[:pay_type] == "Check"
+    if order_params[:pay_type] == "Check"
       params.require(:order).permit(:routing_number, :account_number)
     elsif order_params[:pay_type] == "Purchase order"
       params.require(:order).permit(:po_number)
