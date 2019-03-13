@@ -9,7 +9,7 @@ before_action :authenticate_user!
   # GET /orders
   # GET /orders.json
   def index
-    @orders = Order.all
+    @orders = Order.where(user_id: current_user.id);
   end
 
   # GET /orders/1
@@ -31,8 +31,10 @@ before_action :authenticate_user!
   def create
     @order = Order.new(order_params)
     @order.add_line_items_from_cart(@cart)
-    # @order.current_user.build(user_id: current_user.id)
-    # print "@@@@@@@@@@@@@@@@@@@@@#{@order.user_id}"
+    @order.user_id = current_user.id
+    @order.save
+    # @order.user_id.build(user_id: params[current_user.id])
+    print "@@@@@@@@@@@@@@@@@@@@@ order.user IS : #{current_user.id}"
     # @order.user_id.build(user_id: user.id)
     # make an if statement here to check 
     # if pay with was chosen credit card
