@@ -1,5 +1,5 @@
 class LineItemsController < ApplicationController
-  before_action :authenticate_user!, only: :create
+  skip_before_action :authenticate_user!, only: :create
   include CurrentCart
   before_action :set_cart, only: [:create]
   before_action :set_line_item, only: [:show, :edit, :update, :destroy]

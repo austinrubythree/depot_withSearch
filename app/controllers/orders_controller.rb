@@ -33,9 +33,9 @@ before_action :authenticate_user!
     @order.add_line_items_from_cart(@cart)
     @order.user_id = current_user.id
     @order.save
-    # @order.user_id.build(user_id: params[current_user.id])
+    
     print "@@@@@@@@@@@@@@@@@@@@@ order.user IS : #{current_user.id}"
-    # @order.user_id.build(user_id: user.id)
+    
     # make an if statement here to check 
     # if pay with was chosen credit card
     if order_params[:pay_type] == "Credit Card"
