@@ -1,0 +1,13 @@
+:concurrency: 1
+:pidfile: tmp/pids/sidekiq.pid
+:logfile: log/sidekiq.log
+staging:
+:concurrency: 2
+production:
+:concurrency: 1
+:queues:
+  - default
+  - mailers
+
+  - mysite_default
+  - mysite_mailers

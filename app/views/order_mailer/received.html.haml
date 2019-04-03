@@ -1,5 +1,23 @@
-%h1 Order#received
+%h1 
+  = "Order Number: #{@order.id}"
 
 %p
-  = @greeting , find me in app/views/order_mailer/received.html.erb
+  = @order.name.capitalize 
+  Thank you for your recent order from the Pragmatic Store HTML FILE.
+
+  %p
+    You ordered the following items:
+    %p
+      
+      - @order.line_items.each do |item|
+        %tr
+          %td= item.product.title
+          %td= number_to_currency(item.total_price) 
+      %hr
+      %tr
+        %td Total:
+        %td= number_to_currency(@order.total)
+          
+  %p
+    We'll send you a seperate e-mail when your order ships
 

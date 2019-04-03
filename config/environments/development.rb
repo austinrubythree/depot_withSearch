@@ -30,26 +30,35 @@ Rails.application.configure do
     config.cache_store = :null_store
   end
 
+  #sidekiq settings
+  config.active_job.queue_adapter = :sidekiq
+
+  config.active_job.queue_name_prefix = Rails.env
+  config.active_job.queue_name_delimiter = "_"
+
+
   # Store uploaded files on the local file system (see config/storage.yml for options)
   config.active_storage.service = :local
 
   # Don't care if the mailer can't send.
-  config.action_mailer.raise_delivery_errors = false
+  config.action_mailer.raise_delivery_errors = true
 
-  config.action_mailer.perform_caching = false
+  config.action_mailer.perform_caching = true
 
   # 
   config.action_mailer.delivery_method = :smtp
   # devise config
   config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
+
+  config.action_mailer.perform_deliveries = true
   
   config.action_mailer.smtp_settings = {
     address:          "smtp.gmail.com",
     port:             587,
-    domain:           "domain.of.sender.net",
+    domain:           "gmail.com",
     authenticatioons: "plain",
-    user_name:        "dave",
-    password:         "secret",
+    user_name:        "chin@therubythree.com",
+    password:         "946sueirro",
     enable_starttls_auto: true
   }
   # Print deprecation notices to the Rails logger.

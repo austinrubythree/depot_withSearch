@@ -1,4 +1,10 @@
 Rails.application.configure do
+
+  #sidekiq tester 
+  config.active_job.queue_adapter = :test
+  config.action_mailer.delivery_method = :test
+  config.action_mailer.raise_delivery_errors = true
+  
   # Settings specified here will take precedence over those in config/application.rb.
 
   # The test environment is used exclusively to run your application's

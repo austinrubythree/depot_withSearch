@@ -5,7 +5,9 @@ Dear #{@order.name}
 Thank you for your recent order from the Pragmatic Store.
 
 You ordered the following items:
+%p
+  You ordered the following items:
+  - @order.line_items.each do |item|
+    = item.product.title
 
-\#{ render @order.line_items}
-
-We'll send you a seperate e-mail when your order ships
+  We'll send you a seperate e-mail when your order ships

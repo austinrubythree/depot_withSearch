@@ -28,7 +28,9 @@ before_action :authenticate_user!
 
   # POST /orders
   # POST /orders.json
+
   def create
+    @orders = Order.all
     @order = Order.new(order_params)
     @order.add_line_items_from_cart(@cart)
     @order.user_id = current_user.id
@@ -56,6 +58,9 @@ before_action :authenticate_user!
 
     respond_to do |format|
       if @order.save
+        # This is to send an email with sidekiq
+        ReportWorker.perform_async(@order.id)
+
         Cart.destroy(session[:cart_id])
 
         session[:cart_id] = nil
@@ -121,6 +126,9 @@ before_action :authenticate_user!
       end
     end
   end
+
+
+
   
   private 
     def ensure_cart_isnt_empty
@@ -129,9 +137,7 @@ before_action :authenticate_user!
       end
     end
   
-
-
-  private
+    
     # Use callbacks to share common setup or constraints between actions.
     def set_order
       @order = Order.find(params[:id])
